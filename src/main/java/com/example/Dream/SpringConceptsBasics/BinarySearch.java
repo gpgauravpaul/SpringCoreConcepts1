@@ -1,19 +1,25 @@
 package com.example.Dream.SpringConceptsBasics;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class BinarySearch {
 
-    @Autowired
-    Sorting sorting;
-
-    BinarySearch(Sorting sorting)
+    static int counter = 0;
+    BinarySearch()
     {
-        this.sorting = sorting;
+       counter++;
+        System.out.println("counter ------>>>> "+counter);
     }
+
+    @Autowired
+    @Qualifier("quick")
+    Sorting sorting;
 
     public int Search()
     {
