@@ -9,12 +9,13 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Component
+@Component //@Named in CDI dependency
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class BinarySearch_Scope {
 
-    @Autowired
-    Sorting_Scope sorting;
+    @Autowired ()  //@Inject in CDI dependency
+
+     Sorting_Scope sorting;
 
     public void Search()
     {
