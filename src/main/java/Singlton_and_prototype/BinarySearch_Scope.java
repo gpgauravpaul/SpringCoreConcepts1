@@ -6,8 +6,6 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 
 @Component //@Named in CDI dependency
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
@@ -22,14 +20,4 @@ public class BinarySearch_Scope {
         System.out.println(sorting);
     }
 
-    @PostConstruct
-    public void postConstruct()
-    {
-        System.out.println("postConstruct");
-    }
-    @PreDestroy
-    public void preDestroy()
-    {
-        System.out.println("preDestroy");
-    }
 }

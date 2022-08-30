@@ -1,22 +1,15 @@
 package Context_Packages;
-
 import Singlton_and_prototype.BinarySearch_Scope;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
+import org.springframework.context.annotation.Configuration;
 
-@SpringBootApplication
+@Configuration
 @ComponentScan("Singlton_and_prototype")
 public class SpringConceptsBasicsApplication_Scope {
 
-	private static Logger log = LoggerFactory.getLogger(SpringConceptsBasicsApplication_Scope.class);
-
 	public static void main(String[] args) {
-		ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringConceptsBasicsApplication_Scope.class, args);
+		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConceptsBasicsApplication_Scope.class);
 
 		BinarySearch_Scope bst1 = applicationContext.getBean(BinarySearch_Scope.class);
 		System.out.println(bst1);
